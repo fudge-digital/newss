@@ -17,4 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// public registration
+Route::get('/daftar', [\App\Http\Controllers\RegistrationController::class, 'show'])->name('register.public');
+Route::post('/daftar', [\App\Http\Controllers\RegistrationController::class, 'store'])->name('register.public.store');
+
+
 require __DIR__.'/auth.php';
