@@ -17,4 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware(['auth','role:orang_tua'])->prefix('parent')->name('parent.')->group(function () {
+    Route::get('dashboard', [ParentController::class, 'dashboard'])->name('dashboard');
+});
+
+
 require __DIR__.'/auth.php';
